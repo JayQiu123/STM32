@@ -1,0 +1,128 @@
+Language: Cpp  # 编程语言（必须使用CPP）
+AccessModifierOffset: -4  # 访问修饰符偏移
+AlignAfterOpenBracket: Align  # 对齐开括号后的内容
+AlignArrayOfStructures: None  # 结构数组不对齐
+AlignEscapedNewlines: Left  # 转义换行符左对齐
+AlignOperands: true  # 强制操作符对齐
+AlignTrailingComments: true  # 使尾注释对齐
+AllowAllArgumentsOnNextLine: true  # 允许所有参数在下一行
+AllowAllParametersOfDeclarationOnNextLine: false  # 不允许声明的所有参数在下一行
+AllowShortEnumsOnASingleLine: true  # 允许短枚举在一行
+AllowShortBlocksOnASingleLine: Always  # 总是允许短代码块在一行
+AllowShortCaseLabelsOnASingleLine: true  # 允许短的case标签在一行
+AllowShortFunctionsOnASingleLine: InlineOnly  # 仅允许内联函数在一行
+AllowShortLambdasOnASingleLine: All  # 允许所有短的lambda表达式在一行
+AllowShortIfStatementsOnASingleLine: true  # 允许短的if语句在一行
+AllowShortLoopsOnASingleLine: true  # 允许短的循环在一行
+AlwaysBreakAfterDefinitionReturnType: None  # 定义后返回类型不断行
+AlwaysBreakAfterReturnType: None  # 返回类型后不断行
+AlwaysBreakBeforeMultilineStrings: false  # 多行字符串前不断行
+AlwaysBreakTemplateDeclarations: Yes  # 模板声明总是换行
+AttributeMacros:  # 属性宏列表，保留的属性宏会被特殊处理，提高格式化后的代码可读性
+  - __capability
+  - __output
+  - __unused
+  - __attribute
+  - __attribute__
+BinPackArguments: false  # 不将函数参数打包到一行
+BinPackParameters: false  # 不将函数参数声明打包到一行
+BreakBeforeBraces: Linux  # Linux风格的大括号换行
+BraceWrapping:  # 大括号换行配置
+  AfterCaseLabel: false  # case标签后不换行
+  AfterClass: false  # 类定义后不换行
+  AfterControlStatement: false  # 控制语句后不换行
+  AfterEnum: false  # 枚举定义后不换行
+  AfterFunction: false  # 函数定义后不换行
+  AfterNamespace: false  # 命名空间后不换行
+  AfterStruct: false  # 结构体定义后不换行
+  AfterUnion: false  # 联合定义后不换行
+  AfterExternBlock: false  # extern块后不换行
+  BeforeCatch: false  # catch前不换行
+  BeforeElse: false  # else前不换行
+  BeforeLambdaBody: false  # lambda体前不换行
+  BeforeWhile: false  # while前不换行
+  IndentBraces: false  # 不缩进大括号
+  SplitEmptyFunction: false  # 不拆分空的函数
+  SplitEmptyRecord: false  # 不拆分空的记录
+  SplitEmptyNamespace: false  # 不拆分空的命名空间
+BreakBeforeBinaryOperators: NonAssignment  # 二元运算符（非赋值）换行时放到下一行开头
+BreakBeforeConceptDeclarations: Always  # 概念声明前总是换行
+BreakBeforeInheritanceComma: false  # 继承列表逗号前不换行
+BreakInheritanceList: BeforeComma  # 继承列表在逗号前换行
+BreakBeforeTernaryOperators: true  # 三元运算符前换行
+BreakConstructorInitializersBeforeComma: true  # 构造函数初始化列表逗号前换行
+BreakStringLiterals: true  # 字符串字面量换行
+ColumnLimit: 120  # 列限制
+QualifierAlignment: Leave  # 保留限定符对齐
+CompactNamespaces: true  # 紧凑命名空间
+ConstructorInitializerIndentWidth: 4  # 构造函数初始化列表缩进宽度
+Cpp11BracedListStyle: false  # 不使用C++11花括号列表风格
+DeriveLineEnding: true  # 根据文件类型自动推导行尾
+DisableFormat: false  # 不禁用格式化
+EmptyLineAfterAccessModifier: Never  # 访问修饰符后不留空行
+EmptyLineBeforeAccessModifier: Always  # 访问修饰符前总是留空行
+ExperimentalAutoDetectBinPacking: false  # 不自动检测参数打包
+PackConstructorInitializers: Never  # 不打包构造函数初始化列表
+BasedOnStyle: Google  # 基于Google风格
+ConstructorInitializerAllOnOneLineOrOnePerLine: false  # 构造函数初始化列表不全在一行也不一个占一行
+AllowAllConstructorInitializersOnNextLine: true  # 允许所有构造函数初始化列表在下一行
+IncludeIsMainRegex: '([-_](test|unittest))?$'  # 包含文件作为主文件的正则表达式
+IndentPPDirectives: None  # 预处理指令不缩进
+AlignConsecutiveDeclarations: false  # 不对齐连续的声明
+AlignConsecutiveAssignments: false  # 不对齐连续的赋值
+AlignConsecutiveMacros: false  # 不对齐连续的宏
+SpacesInParens: Never  # 括号内不放空格
+IndentWidth: 4  # 缩进宽度
+ContinuationIndentWidth: 4  # 连续缩进宽度
+InsertBraces: true  # 插入大括号
+InsertTrailingCommas: None  # 不插入尾随逗号
+KeepEmptyLinesAtTheStartOfBlocks: false  # 不保留块开始处的空行
+LambdaBodyIndentation: Signature  # lambda体缩进风格
+MacroBlockBegin: ''  # 宏块开始标记
+MacroBlockEnd: ''  # 宏块结束标记
+MaxEmptyLinesToKeep: 1  # 保留的最大空行数
+NamespaceIndentation: None  # 命名空间不缩进
+DerivePointerAlignment: false  # 不推导指针对齐
+PointerAlignment: Left  # 指针左对齐
+ReferenceAlignment: Left  # 引用左对齐
+PPIndentWidth: -1  # 预处理指令缩进宽度（使用默认）
+ReflowComments: true  # 重新排版注释
+RemoveBracesLLVM: false  # 不移除LLVM风格的括号
+RequiresClausePosition: OwnLine  # requires子句占一行
+SeparateDefinitionBlocks: Always  # 总是分离定义块
+ShortNamespaceLines: 0  # 短的命名空间行数
+SortIncludes: false  # 禁用头文件排序
+SortUsingDeclarations: true  # 排序using声明
+SpaceBeforeParens: ControlStatements  # 控制语句前加空格
+SpaceBeforeParensOptions:  # 括号前空格的选项
+  AfterControlStatements: false  # 控制语句后不加空格
+  AfterForeachMacros: false  # foreach宏后不加空格
+  AfterFunctionDefinitionName: false  # 函数定义名后不加空格
+  AfterFunctionDeclarationName: false  # 函数声明名后不加空格
+  AfterIfMacros: false  # if宏后不加空格
+  AfterOverloadedOperator: false  # 重载运算符后不加空格
+  AfterRequiresInClause: false  # requires子句内不加空格
+  AfterRequiresInExpression: false  # requires表达式内不加空格
+  BeforeNonEmptyParentheses: false  # 非空括号前不加空格
+SpaceAfterCStyleCast: false  # C风格类型转换后不加空格
+SpaceBeforeAssignmentOperators: true  # 赋值操作符前加空格
+SpaceBeforeCpp11BracedList: false  # C++11花括号列表前不加空格
+SpaceBeforeCtorInitializerColon: false  # 构造函数初始化列表冒号前不加空格
+SpaceBeforeInheritanceColon: false  # 继承冒号前不加空格
+SpaceBeforeRangeBasedForLoopColon: false  # 范围for循环冒号前不加空格
+SpacesInContainerLiterals: false  # 容器字面量中不加空格
+SpacesInParensOptions:  # 括号内空格的选项
+  InConditionalStatements: false  # 条件语句中不加空格
+  InEmptyParentheses: false  # 空括号中不加空格
+  Other: false  # 其他情况不加空格
+BitFieldColonSpacing: Both  # 位字段冒号两边都加空格
+Standard: Latest  # 使用最新的C++标准
+TabWidth: 4  # 制表符宽度
+UseCRLF: false  # 不使用CRLF作为行尾
+UseTab: Never  # 不使用制表符
+WhitespaceSensitiveMacros:  # 保持宏定义中的空白字符不变的宏列表
+  - STRINGIZE
+  - PP_STRINGIZE
+  - BOOST_PP_STRINGIZE
+  - NS_SWIFT_NAME
+  - CF_SWIFT_NAME
