@@ -14,7 +14,7 @@
 
 / {
 	model = "STMicroelectronics STM32MP157D eval daughter";
-	compatible = "st,stm32mp157d-atk", "st,stm32mp157";
+	compatible = "st,stm32mp157d-ed1", "st,stm32mp157";
 
 	chosen {
 		stdout-path = "serial0:115200n8";
