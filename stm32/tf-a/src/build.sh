@@ -22,3 +22,6 @@ make -f ../Makefile.sdk -j32 all
 cd ../build/trusted
 
 cp tf-a-stm32mp157d-atk-trusted.stm32 ../../image
+
+cd ../serialboot
+cp tf-a-stm32mp157d-atk-serialboot.stm32 ../../image
