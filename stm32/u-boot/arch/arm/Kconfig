@@ -1676,12 +1676,6 @@ config ISW_ENTRY_ADDR
 	  image headers.
 endif
 
-source "arch/arm/mach-aspeed/Kconfig"
-
-source "arch/arm/mach-at91/Kconfig"
-
-source "arch/arm/mach-bcm283x/Kconfig"
-
 source "arch/arm/mach-bcmstb/Kconfig"
 
 source "arch/arm/mach-davinci/Kconfig"
