@@ -219,7 +219,7 @@ static int yt8511_rd_ext(struct phy_device *phydev, u32 regnum)
 
 	phy_write(phydev, MDIO_DEVAD_NONE, YT8511_REG_DEBUG_ADDR_OFFSET, regnum);
 	val = phy_read(phydev, MDIO_DEVAD_NONE, YT8511_REG_DEBUG_DATA);
-
+	
 	return val;
 }
 
@@ -229,7 +229,7 @@ static int yt8511_wr_ext(struct phy_device *phydev, u32 regnum, u16 val)
 
 	ret = phy_write(phydev, MDIO_DEVAD_NONE, YT8511_REG_DEBUG_ADDR_OFFSET, regnum);
 	ret = phy_write(phydev, MDIO_DEVAD_NONE, YT8511_REG_DEBUG_DATA, val);
-
+	
 	return ret;
 }
 
@@ -258,8 +258,8 @@ int yt8511_config_txdelay(struct phy_device *phydev, u8 delay)
 		Tx Delay time = 150ps * N – 250ps
         */
         val &= ~(0xf << delay);
+		val |= (0x7 << delay);	//150ps * 7 - 250ps
         ret = yt8511_wr_ext(phydev, 0xc, val);
-        val = yt8511_rd_ext(phydev, 0xc);
 
         return ret;
 }
@@ -317,7 +317,7 @@ int genphy_update_link(struct phy_device *phydev)
 	phyid2 = phy_read(phydev, MDIO_DEVAD_NONE, MII_PHYSID2);
 	if((phyid1 == 0X0) && (phyid2 == 0x10a)) {
 		yt8511_config_out_125m(phydev);
-		yt8511_config_txdelay(phydev, 7);
+		yt8511_config_txdelay(phydev, 4);
 	}
 	/*********************end add***************************/
 
@@ -533,7 +533,7 @@ int genphy_config(struct phy_device *phydev)
 int genphy_startup(struct phy_device *phydev)
 {
 	int ret;
-
+	
 	ret = genphy_update_link(phydev);
 	if (ret)
 		return ret;
@@ -1111,12 +1111,12 @@ struct phy_device *phy_connect(struct mii_dev *bus, int addr,
 	if (!phydev)
 		phydev = phy_find_by_mask(bus, mask, interface);
 
-	/***********zuozhongkai add 2021/4/23****************/
+	/***********zuozhongkai add 2021/4/23****************/	
 	if (!phydev) /* 如果还没有获取到phy_device，尝试YT8511 	*/
 	{
 		addr = 0;
 		mask = (addr >= 0) ? (1 << addr) : 0xffffffff;
-		phydev = phy_find_by_mask(bus, mask, interface);
+		phydev = phy_find_by_mask(bus, mask, interface);	
 	}
 	/******************end add****************************/
 

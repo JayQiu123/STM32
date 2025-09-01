@@ -260,4 +260,6 @@
 #endif /* ifndef CONFIG_SPL_BUILD */
 #endif /* ifdef CONFIG_DISTRO_DEFAULTS*/
 
+#define CONFIG_CMD_BOOTD
+
 #endif /* __CONFIG_H */

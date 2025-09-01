@@ -14,7 +14,7 @@
 make distclean
 
 #配置defconfig文件
-make stm32mp157d_atk_defconfig
+make stm32mp15_atk_trusted_defconfig
 
 #开始编译uboot.stm32
-make V=1 -j32 DEVICE_TREE=stm32mp157d-atk all
+make V=1 DEVICE_TREE=stm32mp157d-atk all -j32

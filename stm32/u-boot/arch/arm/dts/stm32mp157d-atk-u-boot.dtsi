@@ -182,13 +182,6 @@
 	u-boot,dm-pre-reloc;
 };
 
-&usbotg_hs {
-	u-boot,force-b-session-valid;
-	hnp-srp-disable;
-	/* TEMP: force peripheral for USB OTG */
-	dr_mode = "peripheral";
-};
-
 &uart4_pins_a {
 	u-boot,dm-pre-reloc;
 	pins1 {
@@ -199,4 +192,11 @@
 		/* pull-up on rx to avoid floating level */
 		bias-pull-up;
 	};
+};
+
+&usbotg_hs {
+	u-boot,force-b-session-valid;
+	hnp-srp-disable;
+	/* TEMP: force peripheral for USB OTG */
+	dr_mode = "peripheral";
 };

@@ -15,7 +15,7 @@
 
 / {
 	model = "STMicroelectronics STM32MP157D eval daughter";
-	compatible = "st,stm32mp157d-atk", "st,stm32mp157";
+	compatible = "st,stm32mp157d-ed1", "st,stm32mp157";
 
 	chosen {
 		stdout-path = "serial0:115200n8";
@@ -44,77 +44,41 @@
 		status = "okay";
 	};
 
-    atk_pinctrl_lcd {
-        gpior = <&gpioj 6 GPIO_ACTIVE_LOW>;
-        gpiog = <&gpiok 2 GPIO_ACTIVE_LOW>;
-        gpiob = <&gpiok 6 GPIO_ACTIVE_LOW>;
-    };
+	panel_rgb: panel-rgb {
+		compatible = "simple-panel";
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&ltdc_pins_b>;
+		pinctrl-1 = <&ltdc_pins_sleep_b>;
+		backlight = <&panel_backlight>;
+		status = "okay";
 
-    panel_rgb: panel-rgb {
-        compatible = "simple-panel";
-        backlight = <&panel_backlight>;
-        status = "okay";
+		port {
+			panel_in_rgb: endpoint {
+				remote-endpoint = <&ltdc_ep0_out>;
+			};
+		};
 
-        port {
-            panel_in_rgb: endpoint {
-                remote-endpoint = <&ltdc_ep0_out>;
-            };
-        };
-    };
-};
-
-&pinctrl {
-   gpio_r:gpio_r {
-        pins {
-            pinmux = <STM32_PINMUX('J', 6, GPIO)>; /* PJ6.GPIO */
-            bias-pull-up;
-            drive-push-pull;
-        };
-    };
-   gpio_g:gpio_g {
-        pins {
-            pinmux = <STM32_PINMUX('K', 2, GPIO)>; /* PK2.GPIO */
-            bias-pull-up;
-            drive-push-pull;
-        };
-    };
-   gpio_b:gpio_b {
-        pins {
-            pinmux = <STM32_PINMUX('K', 6, GPIO)>; /* PK6.GPIO */
-            bias-pull-up;
-            drive-push-pull;
-        };
-    };
-   gpio_beep:gpio_beep {
-        pins {
-            pinmux = <STM32_PINMUX('C', 7, GPIO)>; /* PK6.GPIO */
-            bias-pull-down;
-            drive-push-pull;
-        };
-    };
-};
-
-
-&cpu1{
-	cpu-supply = <&vddcore>;
-};
-
-&gpu {
-	contiguous-area = <&gpu_reserved>;
-	status = "okay";
-};
-
-&iwdg2 {
-    pinctrl-names = "default";
-    pinctrl-0 = <&gpio_r>,<&gpio_g>, <&gpio_b>;
+		display-timings {
+			native-mode = <&timing0>; /* 时序信息 */
+			timing0: timing0 {
+				/* 7寸1024*600分辨率 */
+				clock-frequency = <51200000>; /* LCD 像素时钟，单位 Hz */
+				hactive = <1024>; /* LCD X 轴像素个数 */
+				vactive = <600>; /* LCD Y 轴像素个数 */
+				hfront-porch = <160>; /* LCD hfp 参数 */
+				hback-porch = <140>; /* LCD hbp 参数 */
+				hsync-len = <20>; /* LCD hspw 参数 */
+				vback-porch = <20>; /* LCD vbp 参数 */
+				vfront-porch = <12>; /* LCD vfp 参数 */
+				vsync-len = <3>; /* LCD vspw 参数 */
+			};
+		};
+	};
 };
 
 &ltdc {
 	status = "okay";
-    pinctrl-names = "default", "sleep";
-    pinctrl-0 = <&ltdc_pins_b>;
-    pinctrl-1 = <&ltdc_pins_sleep_b>;
-    
+	pinctrl-names = "default";
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -126,6 +90,15 @@
 	};
 };
 
+
+&cpu1{
+	cpu-supply = <&vddcore>;
+};
+
+&gpu {
+	contiguous-area = <&gpu_reserved>;
+	status = "okay";
+};
 
 &optee {
 	status = "okay";
